@@ -1,2 +1,0 @@
-# SGGLearn
-SGG WebDevLearn
