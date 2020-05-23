@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OBJ</title>
+    <script>
+      /*
+          -目前五种基本类型(不可变类型)
+          数值(Number)
+          字符串(String)
+          布尔值(Boolean)
+          空值(Null)
+          未定义(Undefined)
+
+
+
+
+
+
+          */
+      //   var obj = new Object(); //使用new调用的函数是构造函数,构造函数是专门用来创建对象的函数
+      //   //对象中存储的变量就是属性(property)
+      //   //syntax
+      //   obj.name = "孙悟空";
+      //   obj.age = 18;
+      //   obj.gender = "male";
+      //   obj.address = "123456";
+      //   delete obj.address;
+      //   var myMap = new Map();
+      //   myMap.set(0, "name");
+      //   myMap.set(1, "address");
+      //   myMap.set(2, "gender");
+      //   for (const key in object) {
+      //   }
+      //   //读取对象的属性   syntax:对象.属性    obj.property
+      //   console.log(obj.address);
+      //   //对象的使用
+      //   {
+      //     //创建对象
+      //     //var obj2 = new Object();
+      //     var obj3 = Object(); //obj也可以这样
+      //     var obj4 = {}; //也可以这样创建(也成为对象字面量)
+      //     //添加属性
+      //     /*
+      //     对象属性名没有强制命名规范
+      //     但是也要遵循标识符的规范(比如不能是关键字,保留字,不能以数字开头)
+      //     另外一种添加属性的方式:
+      //     syntax:对象['属性名'] = 属性值;
+      //     */
+      //     obj3.name = "111";
+      //     obj3["2354asda213234sdsdf4"] = "嘻嘻";
+      //     //删除属性
+      //     //delete obj3.name;
+      //     //delete不能删除var
+      //     var s = "name";
+      //     console.log(obj3[s]); //读取对象属性
+      //     //对象的属性值可以是任何数据类型
+      //     obj3.test = true;
+      //     obj3.test = null;
+      //     obj3.test = undefined;
+      //     obj3.test = {}; //test属性值是一个对象
+
+      //     obj3.test.name = "name"; //对象里面套对象,obj3里面的test对象里面的name属性      }
+      //     var o = {}; //a new object, o point to the objcet which save in the RAM
+      //     var p = {}; //it's a independent new obj, doesn't have any connection with the objct o
+      //     console.log(o == p);
+      //     console.log(o === p);
+      //     //comparation between objects is to compare their RAM address, therefore,
+      //     //use equal or strict equal doesn't matter
+      //     //05, 对象字面量形式创建对象(var a = {};)
+      var ss = {
+        //对象字面量,外部为一个大括号,内部是由属性值组成
+        name: "swk", //给对象设置属性名和属性值,中间用冒号链接.不同属性之间用逗号隔开
+        //syntax:{属性名:属性值,属性名:属性值,属性名:属性值d}
+        age: 18,
+        gender: "male",
+        asdru9poiwrjfdsior21423432jpo: "asd",
+      };
+      console.log(
+        ss.name,
+        ss.age,
+        ss.gender,
+        ss["asdru9poiwrjfdsior21423432jpo"]
+      );
+      // o.name = "xxx";
+      // o.age = 0;
+    </script>
+  </head>
+  <body></body>
+</html>
