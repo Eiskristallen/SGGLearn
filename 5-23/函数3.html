@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数3</title>
+    <script>
+      //   function sum() {
+      //     console.log(1 + 1);
+      //   }
+      //   sum();
+      /*
+    在定义函数时,可以在()中制定数量不等的参数(形参)
+    */
+      function fn(a, b) {
+        console.log(a, b);
+      }
+      //调用函数时,可以在括号中传递数量不等的实参(实际参数)
+      fn(1, 2); //此时1,2会赋值给其对应的形参a & b;
+      //js的函数不会检查类型和数量
+      /*
+      js的实参可以是任意的数据类型
+      fn({},{});两个对象
+      js可以传递任意数量的实参-如果实参数量=形参,则一一对应.如果实参多与形参,则没有对应形参的
+      实参,将不会被使用.如果实参的数量小于形参,则没有实参对应的形参将会赋值为undefined
+      return如果不跟任何东西,相当于return undefined
+      return后的代码都是死代码
+      */
+    </script>
+  </head>
+  <body></body>
+</html>
