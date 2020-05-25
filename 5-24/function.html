@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var myNum = 1;
+      //when a function change a primitive type of parameter's value, it doesn't reflect globally
+      function myFun(num) {
+        this.num = 11;
+        return this.num;
+      }
+      myFun(myNum);
+      console.log(myNum); // although i change the myNum in the function but it not effect the original value of myNum
+
+      var myCar = { make: "xixi", take: "hehe" };
+      function myFun2(object) {
+        object.make = "111";
+      }
+      console.log(myCar.make); //the property value doesn't change
+      myFun2(myCar);
+      console.log(myCar.make); //the property value does changed
+      //when a fucntion change a value of a property of an objcet,it's reflect globally
+
+      //function expression can be used to pass into another function as parameter
+      function map(f, a) {
+        let result = [];
+        let i;
+        for (i = 0; i < a.length; i++) {
+          result[i] = f(a[i]);
+        }
+        return result;
+      }
+      const f = function (x) {
+        return x ** 3;
+      };
+      let number1 = [0, 1, 2, 5, 10, 100];
+      let cube = map(f, number1);
+      console.log(cube);
+      //a method is a function that is a property of an object
+      //内层function的parameter不要用跟外层一样的,不然内层循环的parameter value会覆盖掉外层的
+      var createPet = function (name) {
+        return {
+          setName: function (name1) {
+            //这个name就拿不到了,如果内层和外层的parameter起一样的名字的话
+            name = name1;
+          },
+          getName: function () {
+            return name;
+          },
+        };
+      };
+
+      var pet = createPet("xixi");
+      pet.setName("heh");
+      console.log(pet.getName());
+    </script>
+  </head>
+  <body></body>
+</html>

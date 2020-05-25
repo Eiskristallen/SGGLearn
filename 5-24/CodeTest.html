@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //Relational operators
+      //in- use to check whether the specified property is in the specified objec, return a boolean value
+      var trees = ["1", "2", "3", "4", "6"];
+      console.log(0 in trees); //return ture
+      console.log(6 in trees); //return false
+      console.log("1" in trees); //return ture
+      //also can use to check the build-in objcet
+      console.log("PI" in Math); //return ture
+      //custom obj as well
+      var myCar = { make: "1", model: "2" };
+      console.log("make" in myCar); //return ture
+      console.log("take" in myCar); //return false
+
+      //instanceof
+      //the instanceof operator returns ture when a specified objct is of the specified object type
+      //syntax objname instanceof objectType
+      var theDay = new Date(2020, 1, 15);
+      console.log(theDay instanceof Date); //this will return ture since the theDay is the type of Date
+
+      //an expression is a valid unit of code that resolves to a value
+      //include(arithmetic,string,logical,primary expression,left-hand side expresstion)
+      //Primary expression
+      //-- this
+      //syntax this['propertyName'] or this.propertyName
+      //we use this keyword to refer to the current object. this refers to the calling object in a method(谁调这个方法this就是谁)
+
+      //group operator (),use to group a bunch of code in order to arrange the sequence of excecution
+      //left-hand side expression New     --left values are the destination of an assignment
+
+      //spread operator ,    to make multiple arguments isolated from each other
+    </script>
+  </head>
+  <body></body>
+</html>
