@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作用域</title>
+    <script>
+      /*全局作用域
+        局部作用域
+          -函数作用域
+          -块作用域*/
+
+      /*
+         全局作用域
+         --写在script标签里的变量
+         --写在代码块中的var也是全局变量(因为var没有块作用域,let有)
+         --全局变量可以在任意位置被访问(写在script标签里面的)
+         --全局函数(直接写在script标签里边的)能在任何位置被调用
+        */
+      function fn() {
+        console.log("fn函数");
+      }
+
+      (function () {
+        fn();
+      })();
+
+      /*全局作用域的生命周期
+      --网页加载时创建,在网页关闭时销毁(只要网页不关,它就一直在)*/
+    </script>
+  </head>
+  <body></body>
+</html>

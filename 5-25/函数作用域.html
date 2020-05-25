@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*函数作用于(局部作用域,只有使用let和const声明的变量才有块作用域)
+      在函数内部定义的变量,是局部变量,只能在函数内部访问,外部不行
+      函数里面可以用全局的变量,但是全局作用域无法访问局部变量(函数,块)
+      在函数中定义的函数(局部函数,内部函数),只能在函数内部使用
+      --在内部函数是可以访问外部函数和全局作用域的变量和函数
+       */
+      function fn() {
+        var a = 10; //在函数内部声明的变量都在函数作用域中
+        //函数的生命周期
+        //函数作用域在函数调用时产生,函数调用结束时销毁
+        console.log("hehehe", a);
+        inner(); //可以调内部函数inner
+        function inner() {
+          //内部函数
+          console.log("这是内部函数inner");
+        }
+      }
+      //inner(); //全局调inner会报错,无法访问到函数内部的函数
+      fn(); //函数作用域产生
+      //console.log("global", a); //报错,无法访问a
+      //   var a = 10; //此时函数作用域已经没了
+      //每调用一次函数,就会有一个新的作用域
+      //   fn();各个函数作用域互相独立
+      //   fn();
+      //   fn();
+      function xixi() {
+        b = "neibu!"; //在函数内部不使用var关键字声明变量的话,就会变成全局变量!!!!
+      }
+      //使用var声明的变量,和function开头的函数,会在函数内部所有代码执行前被声明和创建(提升)
+      //作用域,对外封闭,对内开放
+      function hehe1() {
+        xixi1();
+        console.log(a);
+        var a = "hello";
+
+        function xixi1() {
+          console.log("3242");
+        }
+      }
+      hehe1();
+    </script>
+  </head>
+  <body></body>
+</html>

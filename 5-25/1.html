@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>method</title>
+  </head>
+  <script>
+    var obj = {};
+    obj.a = "hello"; //string
+    obj.b = true; //blooean
+    obj.c = 123; //number
+    obj.d = null; //null
+    obj.e = undefined; //undefined
+    obj.f = {};
+    obj.f.a = "welcome";
+    //属性值可以是任何东西,包括对象
+    //作为对象属性的函数叫方法
+    obj.g = function () {
+      console.log("im a function");
+    };
+    console.log(obj);
+  </script>
+  <body></body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //全局作用域中有一个对象叫全局对象,
+      //在全局创建的所有变量,都会作为全局对象的属性保存
+      //在全局作用域中创建的所有函数,都是全局对象的方法
+      //在浏览器中,window就是全局对象
+      /*全局作用域中,所有的变量和函数(var声明的),都储存在window对象中*/
+      var a = 10;
+      var b = "hello";
+      //alert(); //访问window对象里面的A属性
+      function fn() {
+        console.log("111");
+      }
+      window.fn();
+
+      window.c = "xixi"; //这个相当于创建了一个全局变量 var c = 'xixi';
+      //alert(c);
+      d = "haha"; //不写var,相当于直接向window对象中添加属性 = window.d = 'haha';
+      alert(d);
+    </script>
+  </head>
+  <body></body>
+</html>

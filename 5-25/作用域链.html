@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function fn() {
+        function inner() {
+          function hello() {}
+          hello();
+        }
+        inner();
+      }
+      fn();
+      //嵌套函数(nested function越往里面走,作用域越小.访问权限越往里面走,访问权限越大
+      //function定义形参相当于在函数内部定义了一个局部变量!!!!!!!!!!!!!!
+      function hehe11(a) {
+        //已经有了一个局部变量a
+        //如果在函数里要访问同名的全局变量的话,加前缀window
+      }
+    </script>
+  </head>
+
+  <body></body>
+</html>
