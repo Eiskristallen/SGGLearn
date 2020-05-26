@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   var p1 = {
+      //     name: "孙悟空",
+      //     age: 18,
+      //     gender: "男",
+      //     sayHello: function () {
+      //       console.log(this.name);
+      //     },
+      //   };
+      //   p1.sayHello();
+
+      function CreatePerson(name, age, gender) {
+        //工厂方法创建对象
+        return {
+          //属性名和参数一样的话,可以省略属性名name = name => name
+          name,
+          age,
+          gender,
+          sayHello() {
+            console.log("i am" + this.name);
+          },
+        };
+      }
+      function CreateDog(age, name) {
+        return {
+          age,
+          name,
+          wangwang() {
+            console.log("wangwang");
+          },
+        };
+      }
+      var p = CreatePerson("11", 22, "nan");
+      console.log(p.sayHello());
+    </script>
+  </head>
+  <body></body>
+</html>

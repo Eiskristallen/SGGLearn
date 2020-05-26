@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      var p1 = new Person("小明", 11);
+      var p2 = new Person("小红", 12);
+      var p3 = new Person("小王", 18);
+      var p4 = new Person("小刚", 11);
+      var p5 = new Person("小李", 12);
+      var p6 = new Person("小赵", 20);
+      Person.prototype.toString = function () {
+        return `我是${this.name},今年${this.age}岁了`;
+      };
+      var personArr = [p1, p2, p3, p4, p5, p6];
+      console.log(p1.toString());
+      function getAudlt(arr) {
+        var result = [];
+        //普通for循环
+        // for (var i = 0; i < arr.length; i++) {
+        //   if (arr[i].age >= 18) {
+        //     result.push(arr[i]);
+        //   }
+        // }
+
+        //foreach
+        // arr.foreach((i) => {不能用
+        //   if (i.age >= 18) {
+        //     result.push(arr[i]);
+        //   }
+        // });
+
+        //用for of
+        // for (var i of arr) {
+        //   if (i.age >= 18) {
+        //     result.push(i);
+        //   }
+        // }
+
+        //用for in
+        for (var i in arr) {
+          if (arr[i].age >= 18) {
+            result.push(arr[i]);
+          }
+        }
+
+        return result;
+      }
+      getAudlt(personArr).forEach((i) =>
+        console.log(`${i.name}满18岁了,年龄是${i.age}`)
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

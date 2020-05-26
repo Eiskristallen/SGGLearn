@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //每一个构造函数中,都有一个属性prototype
+      function Myclass() {}
+      console.log(Myclass.prototype); //指向的是一个对象,这个对象,我们称为原型对象
+      //原型对象里面的对象可以被所有的instance所访问到,相当于一个公共区域
+      //每个constructor的instance都有一个隐藏属性叫__proto__可以访问到原型对象
+      //当我们访问对象中的属性时,会先在对象本身找,如果没有,就去原型里面找
+      //这样我们只要创建一个属性,就可以被该类的所有属性共享
+      var mc = new Myclass();
+      mc.__proto__.age = 19;
+      console.log(Myclass.prototype.age);
+    </script>
+  </head>
+  <body></body>
+</html>

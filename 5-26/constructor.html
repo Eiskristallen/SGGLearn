@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*构造函数
+           - 其实就是个普通函数
+           -直接调用就是普通函数
+           -用new调用就是构造函数
+           -通常情况下为了和普通函数区分,通常以大写字母开头(大驼峰)
+           -构造函数执行流程
+             1. 创建新的对象
+             2.将新的对象设置为this
+             3.执行函数中的代码
+             4.将新的对象作为返回值返回
+
+           */
+
+      //   function fn() {}
+      //   var a = new fn();
+      //   alert(a);
+      //通过将function放在全局里面,然后每次创建新对象吧此function赋值给新对象的对应属性,通过这种方式来避免重复创建同样的function
+      //但是这个方法有缺陷,因为不能随意在全局里面写东西
+      function sayHello() {
+        console.log("123" + this.name);
+      }
+      function Person(name, age, gender) {
+        //this在构造函数中,表示新创建的对象
+        //this以构造函数形式调用,就表示新的对象
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.sayHello = sayHello;
+      }
+      var p1 = new Person("hehe", 18, "nan");
+      console.log(p1);
+      p1.sayHello();
+    </script>
+  </head>
+  <body></body>
+</html>

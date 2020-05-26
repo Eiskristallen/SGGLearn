@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // function Person(name, age) {
+      //   this.name = name;
+      //   this.age = age;
+      // }
+      // Person.prototype.sayHello = function () {
+      //   console.log("i am " + this.name);
+      // };
+      // Person.prototype.abc = "xixi";
+      // var p1 = new Person("xixi", 18);
+      // console.log(p1.abc);
+      // p1.sayHello();
+      // //in 运算符用来检查某个对象是否含有某个属性
+      // console.log("name" in p1); //true
+      // console.log("gender" in p1); //false
+      // //使用in检查一个属性时,无论属性是在原型中还是在本身都会返回true
+      // console.log("abc" in p1); //true
+
+      // //可以用hasOwnProperty检查是否对象本身有这个属性,只在对象本身有该属性的时候返回true
+      // console.log(p1.hasOwnProperty("name")); //true
+      // console.log(p1.hasOwnProperty("abc")); //false
+      function Myclass(name) {
+        this.name = name;
+      }
+      var mc = new Myclass("11");
+      //打印对象的时候,通常显示的是[object Object](实际上就是toString方法的返回值)
+      //mc被转换成字符串,实际上就是调用了MC的to.String方法
+      //如果不希望打印[objct Objcet],可以修改toString方法
+      //Myclass.prototype.toString = () => mc.name;
+      Myclass.prototype.toString = function () {
+        return this.name;
+      };
+
+      alert(mc);
+    </script>
+  </head>
+  <body></body>
+</html>
