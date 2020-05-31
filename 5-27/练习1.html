@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var numbers = [
+        1,
+        4,
+        5,
+        7,
+        1,
+        9,
+        4,
+        5,
+        4,
+        4,
+        4,
+        4,
+        5634,
+        23,
+        2,
+        3,
+        121,
+        3,
+        65,
+        75,
+        12,
+        2,
+        7,
+        1,
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+      ];
+      //循环法去重
+      //   function deRepeat(arr) {
+      //     for (let i = 0; i < arr.length; i++) {
+      //抓取数组里面的一个数字跟后面所有的数字对比,重复的删除,外层循环负责抓取要比较的数字
+      //       for (let j = i + 1; j < arr.length; j++) {
+      //内层循环负责比较
+      //         if (arr[i] == arr[j]) {
+      //判断是否相等,如相等删除
+      //           arr.splice(j, 1);
+      //每删除一个数字后因为被删除数字后面的数字会上移,导致循环会漏掉这一次比较,故每次删除后j--,重新比较一次(用来处理连续的相同数字)
+      //           j--;
+      //         }
+      //       }
+      //     }
+      //     return arr;
+      //   }
+      //   console.log(deRepeat(numbers));
+      /* 用set法去重,因为set内的数值必须为独有
+      function uniqueArr(arr) {
+        把要去重的数组转换成一个set,然后再转换成array返回
+        return Array.from(new Set(arr));
+      }
+      uniqueArr(numbers).forEach((i) => console.log(i));
+     */
+      var result = [];
+      result = numbers.filter((x) => {
+        return x > 100;
+      });
+      console.log(result);
+    </script>
+  </head>
+  <body></body>
+</html>

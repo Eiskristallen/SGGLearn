@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var arr = [1, 232, 34, 3, 234, 234, 3, 34, 23, 423, 32, 43, 12, 12, 42];
+      //   function getOdd(arr) {
+      //     let result = [];
+      //     for (const iterator of arr) {
+      //       if (iterator % 2 !== 0) {
+      //         result.push(iterator);
+      //       }
+      //     }
+      //     return result;
+      //   }
+      //   function getEven(arr) {
+      //     let result = [];
+      //     for (const iterator of arr) {
+      //       if (iterator % 2 === 0) {
+      //         result.push(iterator);
+      //       }
+      //     }
+      //     return result;
+      //   }
+      //   function getThree(arr) {
+      //     let result = [];
+      //     for (const iterator of arr) {
+      //       if (iterator % 3 === 0) {
+      //         result.push(iterator);
+      //       }
+      //     }
+      //     return result;
+      //   }
+      //   //getOdd(arr).forEach((i) => console.log(i));
+      //   //getEven(arr).forEach((i) => console.log(i));
+      //   getThree(arr).forEach((i) => console.log(i));
+      function filter(arr, fn) {
+        let result = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (fn(arr[i])) {
+            result.push(arr[i]);
+          }
+        }
+        return result;
+      }
+
+      filter(arr, (n) => {
+        return n % 2 !== 0;
+      }).forEach((i) => console.log(i, this));
+      //箭头函数的this由外层作用域的this决定(比如调用箭头函数的那个函数是用函数方法调用的,那他的this就是window,如果调用箭头函数的那个函数是用方法形式调用的,他的this就是那个方法的对象)
+    </script>
+  </head>
+  <body></body>
+</html>

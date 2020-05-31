@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var numbers = [
+        2,
+        3,
+        5,
+        23,
+        2,
+        2,
+        2,
+        13,
+        4,
+        5,
+        3,
+        54,
+        23,
+        65657,
+        56835,
+        3,
+        52554,
+        54,
+        3,
+        6,
+        43,
+        23,
+      ];
+      //   var nuw = [];
+      //   for (var i = 0; i < numbers.length; i++) {
+      //     if (nuw.indexOf(numbers[i]) === -1) {
+      //       nuw.push(numbers[i]);
+      //     }
+      //   }
+      //   console.log(nuw);
+      //   console.log(
+      //     numbers.sort(function (a, b) {
+      //       return b - a; //a的值一定在b的后面(只适用于新版的chrome)
+      //     })
+      //   ); //sort会根据回调函数的返回值,来决定是否交换位置
+      //返回正值,位置不变
+      //返回负值,交换位置
+      //如果返回0,表示相等,不变位置
+      //return a-b
+      /*    javascript function 里面有个隐含参数argument(是一个类数组对象)
+        调用函数时传入的所有的实参,都保存在argument里面了 */
+      /* ES6里面有个新的东西叫剩余参数,用来替代arguments
+       */
+      //   function fn(a, b, ...c) {
+      //     ///在参数最后定义一个...argus(rest )
+      //     //调用阶段传进去的多余的实参(没有形参对应的实参),都会保存到这个剩余参数里面(这个剩余参数是一个数组)
+      //     console.log(c); //34,2,234
+      //   }
+      //   fn(2, 35, 34, 2, 234);
+      //   function sum(...args) {
+      //     return args.reduce((a, b) => a + b);
+      //   }
+      //   console.log(sum(324, 35, 34, 2, 456, 2));
+      //   function fn2(a, b) {
+      //     console.log(`fn2被调用了,${this}`);
+      //   }
+      //   fn2.call(obj, 2, 2); //可以用call指定this是谁,如果不传参.相当于直接调用(fn2()).如果传入实参,this会指向第一个实参. call方法第二个参数不用是数组
+      //   fn2.apply(obj, [12, 33]); //大体作用跟call相同,也是可以指定this. 不同点为apply接受的第二个参数是一个数组,数组里面的每一个元素对应后面的实参
+      //   //apply的第一个参数是用来指定this的
+      //   var asd = fn2.bind(obj); //返回一个新的函数对象,调用的效果跟调老函数一样,但是新函数的this会被固定为传进去的那个参数(后面传实参可以固定实参.)
+      //   function jiecheng(n) {
+      //     if (n <= 1) {
+      //       return 1;
+      //     }
+      //     return n * jiecheng(n - 1);
+      //   }
+      //   console.log(jiecheng(10));
+      //   function mi(num, times) {
+      //     if (times === 1) {
+      //       return num;
+      //     }
+      //     return num * mi(num, times - 1);
+      //   }
+      //   console.log(mi(5, 7));
+    </script>
+  </head>
+  <body></body>
+</html>

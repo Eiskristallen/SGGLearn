@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var numbers = [
+        1,
+        43,
+        23,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        56,
+        2,
+        435,
+        7,
+        65,
+        4,
+        3,
+        23,
+        55,
+        4,
+        6,
+        2,
+        2,
+      ];
+      function quickSort(arr) {
+        if (arr.length == 0) {
+          return arr;
+        }
+        let left = [];
+        let right = [];
+        let baseNum = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+          if (arr[i] < baseNum) {
+            left.push(arr[i]);
+          } else if (arr[i] > baseNum) {
+            right.push(arr[i]);
+          }
+        }
+        return [...quickSort(left), baseNum, ...quickSort(right)];
+      }
+      console.log(quickSort(numbers));
+
+      //冒泡排序
+      //   function sort1(arr) {
+      //     var a = 0;
+      //     for (let i = 0; i < arr.length; i++) {
+      //       for (let j = 0; j < arr.length - 1 - i; j++) {
+      //         if (arr[j] > arr[j + 1]) {
+      //           a = arr[j];
+      //           arr[j] = arr[j + 1];
+      //           arr[j + 1] = a;
+      //         }
+      //       }
+      //     }
+      //     return arr;
+      //   }
+      //   console.log(sort1(numbers));
+    </script>
+  </head>
+  <body></body>
+</html>

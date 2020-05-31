@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>练习</title>
+    <script>
+      //   function Person(name, age) {
+      //     this.name = name;
+      //     this.age = age;
+      //   }
+      //   Person.prototype.toString = function () {
+      //     return `我的名字是${this.name},我的年龄是${this.age}`;
+      //   };
+      //   var p1 = new Person("小红", 11);
+      //   console.log(p1.toString());
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      Person.prototype.toString = function () {
+        return `我是${this.name},我的年龄是${age}`;
+      };
+
+      var p1 = new Person("1", 19);
+      var p2 = new Person("2", 11);
+      var p3 = new Person("3", 12);
+      var p4 = new Person("4", 22);
+      var p5 = new Person("5", 32);
+      var p6 = new Person("6", 34);
+      var pArry = [p1, p2, p3, p4, p5, p6];
+      function getAdult(arr) {
+        let result = [];
+        // for (const key in arr) {
+        //   if (arr[key].age >= 18) {
+        //     result.push(arr[key]);
+        //   }
+        // }
+        for (const iterator of arr) {
+          if (iterator.age >= 18) {
+            result.push(iterator);
+          }
+        }
+        return result;
+      }
+      getAdult(pArry).forEach((i) => {
+        console.log(`${i.name}超过18岁了,年龄是${i.age}`);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

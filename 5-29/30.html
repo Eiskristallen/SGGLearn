@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // function fn() {
+      //   var time = 0;
+      //   function fn2() {
+      //     time++;
+      //     console.log(time);
+      //   }
+      //   return fn2;
+      // }
+      // var ss = fn();
+      // ss();
+      // fn2();
+      // var obj = { name: "xx", age: 18, hehe: { name: "xx", age: 18 } };
+      // var obj2 = Object.assign({}, obj);
+      // console.log(obj === obj2);
+
+      //   var s = (function () {
+      //     var name = 0;
+      //     return function () {
+      //       name++;
+      //       console.log(name);
+      //     };
+      //   })();
+      //   s();
+      //   s();
+      //   s();
+      //   s();
+      //   s();
+      // function fns() {
+      //   let s = 0;
+      //   function fns1() {
+      //     s++;
+      //     console.log(`fns1${s}`);
+      //   }
+      //   function fns2() {
+      //     s++;
+      //     console.log(`fns2${s}`);
+      //   }
+      //   return { inner: fns1, inner2: fns2 };
+      // }
+      // var obj1 = fns();
+      // obj1.inner();
+      //闭包就是可以访问外部函数(作用域)中的内部函数
+      var d = new Date("12/05/2020"); //获取的值要+1,因为从0开始算月份和天数
+      console.log(d.getMonth() + 1);
+      var dt = d.getDate(); //获得日期
+
+      console.log(dt);
+      var day = d.getDay(); //获取周几
+      console.log(day);
+      var dd = new Date();
+      var time = dd.getTime(); //返回从格林威治标准时间1970年一月一日零点零分到现在的毫秒数
+    </script>
+  </head>
+  <body></body>
+</html>
