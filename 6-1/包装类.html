@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /* JS里面有三个包装类,可以创造基本数据类型的对象 
+      String()
+      Number()
+      Boolean()*/
+      var d = new Number(10); //对象数据类型
+      d["name"] = "xixi"; //可以拿来添加属性
+      console.log(d + 33); //也可以拿来做运算
+      //原始值所有的功能,new Number都有,而且他还有对象的功能
+      //开发时绝对不要这么用
+      /* 当我们1用基本数据类型的属性或方法的,JS会给这个基本数据用包装类临时转换成对象(一次性的,用完对象就没),然后再调用对象方法 */
+      var a = 33;
+      console.log(a.toString()); //这就是为什么a可以调用toString
+      console.log((r = String.fromCharCode(3743)));
+      var str = "xixixixixixhello";
+      console.log(str[2]);
+    </script>
+  </head>
+  <body></body>
+</html>

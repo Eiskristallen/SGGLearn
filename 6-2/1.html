@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //创建一个正则,检查字符串是否以a开头
+      var reg = /^a/; //^在括号外面,表示的是开始位置,(这个reg的意思就是字符串以A开头)
+      var result = reg.test("abc"); //true
+      result = reg.test("vabc"); //false
+      console.log(result);
+      var reg1 = /c$/; //$符表示字符串的结束位置(这个reg的意思是字符串的结束位置紧跟着一个c.匹配以c结尾的字符串)
+      /* 如果一个正则以^ 开始, 以$结束,则要求字符串与正则完全匹配 */
+
+      reg = /^a[bdf]c$/; //以a开头,中间包含bdf,以c结尾的正则//但是输入bdf会返回false,因为[]默认表示的是一个字符,所以只能选一
+      reg = /^abc|aec$/; //以abc开头,或者aec结尾,或是或两个表达式
+      reg = /^abc$|^aec$/; //完全匹配abc或者aec
+      result = reg.test("abc"); //true
+      console.log(result);
+    </script>
+  </head>
+  <body></body>
+</html>

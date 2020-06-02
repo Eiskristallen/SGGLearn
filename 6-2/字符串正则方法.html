@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var str = "hello";
+      /*
+    //   str.match();
+        - 用来搜索一个字符串是否含有指定内容
+        -寻找元素在串里面出现的位置,类似于indexOf(),search没有第二个参数,不能指定查找开始的位置
+        -参数可以传正则表达式
+    //   str.replace();
+    //   str.split();
+        -用来指定一个参数,根据参数拆分字符串,返回一个数组
+        -也可以传一个正则,根据正则拆分
+    //   str.search();
+
+*/
+
+      var str1 = "hello";
+      str = "acc abc aec afc agc";
+
+      //
+      var result = str.search(/l/); //
+      result = str.search(/a[be]c/); //正则可以更灵活的,搜索abc或者aec
+
+      str = "孙悟空a124c猪八戒a43543c沙和尚";
+      result = str.replace(/a[0-9]+c/gi, ",");
+      str = "孙悟空a124c猪八戒a43543c沙和尚";
+      result = str.split(/a[0-9]+c/);
+      str = "递四方速递脸滚键盘的;fomjg13006661111asilkdj15013561111";
+      result = str.match(/1[3-9][0-9]{9}/gi);
+
+      console.log(result);
+    </script>
+  </head>
+  <body></body>
+</html>

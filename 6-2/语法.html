@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //创建一个正则,是否含有点
+      var reg = /./; //.在正则里有特殊含义,代表匹配任意单个字符(除换行以外 \t  \n)
+      var result = reg.test("s");
+      console.log(result);
+      reg = /\bchild\b/; //b代表单词边界,拿来区分单个的独立的单词(比如搜children应该返回false)
+      /* 
+        \w
+           -任意单词字符[等价于a-zA-Z0-9_]
+        \W
+          -匹配任意不是单词字符[等价于^a-zA-Z0-9_]
+        \d
+         -任意数字[0-9]
+        \D
+         -任意数字除了[^0-9]
+        \s 
+         -任意空格字符
+        \S 
+         -除了空格字符
+        \d
+         -单词边界  
+        \D
+         -除了单词边界*/
+    </script>
+  </head>
+  <body></body>
+</html>

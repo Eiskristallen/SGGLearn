@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   function reverseString(string) {
+      //     var str = prompt("输入字符串");
+      //     var result = str.split("").reverse().join("");
+      //     return alert(result);
+      //   }
+      //   reverseString();
+
+      //   function huiwen() {
+      //     var str = prompt("输入字符串");
+      //     var result = str.split("").reverse().join("");
+      //     if (str === result) {
+      //       alert("是");
+      //     } else {
+      //       alert("不是");
+      //     }
+      //   }
+      //   huiwen();
+      //   function huiwen1() {
+      //     var str = prompt("输入字符串");
+      //     var baseNum = Math.floor(str.length / 2 + 1);
+      //     var rightSub = str.substring(str[0], str[baseNum - 1]);
+      //     var leftSub = str.substring(str[baseNum + 1], str[length - 1]);
+
+      //     if (leftSub.split("") == rightSub.split("").reverse()) {
+      //       alert("是");
+      //     } else {
+      //       alert("不是");
+      //     }
+      //   }
+      //   huiwen1();
+      //   function huiwen(str) {
+      //     if (str.length <= 1) {
+      //       return true;
+      //     }
+      //     if (str[0] !== str[str.length - 1]) {
+      //       return false;
+      //     }
+      //     return huiwen(str.slice(1, -1));
+      //   }
+      //   console.log(huiwen("abcba"));
+      //var reg = /a/i;
+      var result = /a/i.test("assdssdfd");
+      console.log(result);
+
+      var reg = /a|b/; //a或b
+      reg = /[ab]/; //[xxoo]里的等价于xx或oo
+      /* [^ ] 表示除了,其实就是取反*/
+      reg = /[a-zA-Z]/; //全部字母
+    </script>
+  </head>
+  <body></body>
+</html>

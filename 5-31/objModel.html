@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   var s = new Map();
+      //   s.set(2, 4);
+      //   console.log(s.get(2));
+      /* object继承
+       */
+      function Animals(name, age) {
+        //fundamental constructor
+        this.name = name || "a"; //more flexible,if there is no specified parameter passed in, it will use a as the default value of the name property
+        this.age = age || 1;
+      }
+      //dog inheritance the properties from Animals through prototype chain
+      function Dog(name, age) {
+        this.base = Animals; //指定一个属性为原型类构造方法
+        this.base(name, age); //吧原型类的形参拿下来,这样可以通过子对象的实参给父对象的属性传参
+        this.gender = "male";
+        console.log(this.base(this));
+      }
+      //如果不给prototype设置,dog也能通过上述方法(base)访问到Animals里面的属性,但是如果日后animals添加了新的property,dog就没有办法访问和继承
+      Dog.prototype = new Animals(); //这个是给dog指定原型对象,所以不能少
+      Dog.prototype.constructor = Dog;
+
+      var a = new Dog("xixi", 31);
+      console.log(a);
+
+      a.name = "hehe";
+      console.log(a.name, a.age);
+      console.log(a.constructor === Dog);
+
+      function BigDog() {
+        console.log(this);
+
+        this.skin = "red";
+      }
+      //new出来的obj都会有一个属性constructor指向基类构造器的类型
+      //在对象的原型里new一个别的对象,被new出来的对象就会变成该对象的原型对象之一,能继承属性和值
+      BigDog.prototype = new Dog();
+      //这个就是把这个属性修改为指向自己的构造器的类型
+      BigDog.prototype.constructor = BigDog;
+      //b继承了dog和animal的属性和属性的默认值
+      var b = new BigDog();
+      console.log(b.constructor === BigDog);
+      console.log(b.name);
+    </script>
+  </head>
+  <body></body>
+</html>

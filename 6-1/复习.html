@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Myclass() {}
+      Myclass.prototype.t1 = function () {}; //添加到prototype中的方法被称为实例方法,需要用实例对象来调用
+      //var mac = new Myclass();
+      //mc.t1();
+      //或 new Myclass.t1();
+      Myclass.t2 = function () {};
+      /* 直接添加到类(函数对象)中的方法被称为类方法
+      类方法,直接通过函数对象调用
+      Myclass.t2 */
+      function getRandomInt(max, min) {
+        max = Math.floor(max);
+        min = Math.ceil(min);
+        return Math.floor(Math.random() * (max - min) + min);
+      }
+      console.log(getRandomInt(10, 100));
+      /* 生成xy之间的整数
+      Matn.round(Math.random()*(y-x)+x); */
+      function luanxu(arr) {
+        var max = Math.max(...arr);
+        var min = Math.min(...arr);
+        var result = [];
+        for (let i = 0; i < arr.length; i++) {}
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
