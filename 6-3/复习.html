@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var reg = /ab+?/; //量词后面加个?是关闭贪婪模式
+
+      console.log(reg.test("ab"));
+      var str = "abbbcc";
+      var result = str.match(reg);
+      //正则表达式的贪婪模式,当我们使用量词去匹配内容,它会尽可能去多匹配. ab+匹配一个b就可以,但是它会有多少b匹配多少
+      console.log(result[0]);
+    </script>
+  </head>
+  <body></body>
+</html>

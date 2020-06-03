@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">click me</button>
+    <script>
+      var btn = document.getElementById("btn");
+      btn.onclick = () => {
+        alert("嘻嘻嘻嘻");
+      }; //吧这些代码写在网页加载完毕以后的事件函数里面
+      //load事件表示资源加载,当整个页面资源加载完毕后事件会触发
+      window.onload = function () {};
+    </script>
+  </body>
+</html>

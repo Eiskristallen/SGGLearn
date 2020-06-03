@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #outer {
+        width: 520px;
+
+        background-color: #bfa;
+        margin: 50px auto;
+        text-align: center;
+        overflow: hidden;
+      }
+      img {
+        display: block;
+        margin: 10px;
+
+        background-color: red;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var btnS = document.getElementById("shang");
+        var btnX = document.getElementById("xia");
+        var as = document.getElementById("imga");
+        var num1 = 1;
+        btnS.onclick = function () {
+          if (num1 <= 1) {
+            num1 = 6;
+          }
+          num1--;
+          as.src = `../../class200422/day15/img/${num1}.jpg`;
+        };
+        btnX.onclick = function () {
+          if (num1 >= 5) {
+            num1 = 0;
+          }
+          num1++;
+          as.src = `../../class200422/day15/img/${num1}.jpg`;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="outer">
+      <img src="../../class200422/day15/img/4.jpg" alt="" id="imga" />
+      <button id="shang">上一张</button>
+      <button id="xia">下一张</button>
+    </div>
+  </body>
+</html>
