@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        var checkedAllBtn = document.getElementById("checkedAllBtn");
+        var items = document.getElementsByName("items");
+        checkedAllBtn.onclick = function () {
+          for (let i = 0; i < items.length; i++) {
+            items[i].checked = true;
+          }
+        };
+        var checkedNoBtn = document.getElementById("checkedNoBtn");
+        checkedNoBtn.onclick = function () {
+          for (let i = 0; i < items.length; i++) {
+            items[i].checked = false;
+          }
+        };
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM增删改</title>
+    <script>
+      var gz = document.createElement("li"); //创建一个li元素节点
+      var txt = document.createTextNode("sz"); //创建一个文本节点
+      gz.appendChild(txt); //将TXT设置为广州的子节点
+      var city = document.getElementById("city"); //获取city
+      city.appendChild(gz); //吧gz设置为city的子节点
+    </script>
+  </head>
+  <body></body>
+</html>

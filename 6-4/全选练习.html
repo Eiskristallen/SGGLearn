@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>全选练习</title>
+    <script>
+      window.onload = function () {
+        var boxArr = document.getElementsByName("items");
+
+        var checkAll = document.getElementById("checkedAllBtn");
+        checkAll.onclick = function () {
+          for (let i = 0; i < boxArr.length; i++) {
+            boxArr[i].checked = true;
+          }
+          checkAllButton.checked = true;
+        };
+
+        var unCheckAll = document.getElementById("checkedNoBtn");
+        unCheckAll.onclick = function () {
+          for (let i = 0; i < boxArr.length; i++) {
+            boxArr[i].checked = false;
+          }
+          checkAllButton.checked = false;
+        };
+
+        var reverse = document.getElementById("checkedRevBtn");
+        reverse.onclick = function () {
+          for (let i = 0; i < boxArr.length; i++) {
+            boxArr[i].checked = !boxArr[i].checked;
+            // if (boxArr[i].checked == true) {
+            //   boxArr[i].checked = false;
+            // } else {
+            //   boxArr[i].checked = true;
+            // }
+          }
+          checkAllBoxFn();
+        };
+
+        var commit = document.getElementById("sendBtn");
+        commit.onclick = function () {
+          var checkedItem = [];
+          for (let i = 0; i < boxArr.length; i++) {
+            if (boxArr[i].checked == true) {
+              checkedItem.push(boxArr[i].value);
+            }
+          }
+          if (checkedItem.length != 0) {
+            alert(`你喜欢的运动有${checkedItem}`);
+          } else {
+            alert("你倒是选个东西啊");
+          }
+
+          unCheckAll.onclick();
+        };
+        var checkAllButton = document.getElementById("checkedAllBox");
+        checkAllButton.onclick = function () {
+          //在事件的响应函数中,this是绑定事件的对象(在这里就是checkAllButton)
+          if (this.checked) {
+            checkAll.onclick();
+          } else if (!this.checked) {
+            unCheckAll.onclick();
+          }
+        };
+        for (const i in boxArr) {
+          boxArr[i].onclick = checkAllBoxFn;
+        }
+
+        function checkAllBoxFn() {
+          // var flag = true;
+          // for (const i of boxArr) {
+          //   if (i.checked == false) {
+          //     flag = false;
+          //     checkAllButton.checked = false;
+          //   }
+          // if ([...boxArr].some((ele) => ele.checked === false)) {
+          //   checkAllButton.checked = false;
+          //   //[...boxArr]可以把nodelist转换成为数组
+          // }
+          // if ([...boxArr].every((ele) => ele.checked === true)) {
+          //   checkAllButton.checked = true;
+          // }//我的方法,下面哪个是老师给的更简便的方法
+          // checkAllButton.checked = [...boxArr].every((ele) => ele.checked);
+          // var flag = true;
+          // //兼容性高的方法
+          // for (let i = 0; i < boxArr.length; i++) {
+          //   if (!boxArr[i].checked) {
+          //     flag = false;
+          //     break;
+          //   }
+          // }
+          // checkAllButton.checked = flag;
+          var checked = document.querySelectorAll("[name=items]:checked");
+          //css伪类加属性选择器,能拿到所有的被选中的checkbox
+          var isAllChecked = checked.length == boxArr.length;
+          checkAllButton.checked = isAllChecked;
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <form method="post" action="">
+      你爱好的运动是？<input type="checkbox" id="checkedAllBox" />全选/全不选
+
+      <br />
+      <input type="checkbox" name="items" value="足球" />足球
+      <input type="checkbox" name="items" value="篮球" />篮球
+      <input type="checkbox" name="items" value="羽毛球" />羽毛球
+      <input type="checkbox" name="items" value="乒乓球" />乒乓球
+      <br />
+      <input type="button" id="checkedAllBtn" value="全　选" />
+      <input type="button" id="checkedNoBtn" value="全不选" />
+      <input type="button" id="checkedRevBtn" value="反　选" />
+      <input type="button" id="sendBtn" value="提　交" />
+    </form>
+  </body>
+</html>

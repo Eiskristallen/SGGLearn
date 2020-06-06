@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>添加删除记录练习</title>
+    <link rel="stylesheet" type="text/css" href="增删改查练习.css" />
+    <script type="text/javascript">
+      window.onload = function () {
+        //获取用户输入框
+        var nameInput = document.getElementById("empName");
+        var emailInput = document.getElementById("email");
+        var salaryInput = document.getElementById("salary");
+
+        //获取table
+        var employeeTable = document.getElementById("employeeTable");
+        //获取subButton
+        var subButton = document.getElementById("addEmpButton");
+
+        //给submit button绑定单击事件函数
+        subButton.onclick = function addEmployee() {
+          //创建新的tr元素
+          var customTr = document.createElement("tr");
+          //模板字符串简化版
+          customTr.innerHTML = `<td>${nameInput.value}</td>
+        <td>${emailInput.value}</td>
+        <td>${salaryInput.value}</td>
+        <td><a href="javascript:;">Delete</a></td>`;
+          customTr.getElementsByTagName("a")[0].onclick = deleteEmployeeInfor;
+
+          //创建新的td元素
+          // var employeeNameTd = document.createElement("td");
+          // var employeeEmailTd = document.createElement("td");
+          // var employeeSalatyTd = document.createElement("td");
+          // var deleteLinkElement = document.createElement("td");
+          // var deleteAElement = document.createElement("a");
+          //给新的A元素添加链接和设置内部文字
+          // deleteAElement.innerText = "Delete";
+          // deleteAElement.href = "javascript:;";
+          // deleteLinkElement.appendChild(deleteAElement);
+          // deleteAElement.onclick = deleteEmployeeInfor;
+
+          //把新的Td元素附于新的tr元素
+          // customTr.appendChild(employeeNameTd);
+          // customTr.appendChild(employeeEmailTd);
+          // customTr.appendChild(employeeSalatyTd);
+          // customTr.appendChild(deleteLinkElement);
+
+          //把新的Tr附于表格
+          employeeTable.appendChild(customTr);
+          //把用户输入的内容赋值给新的td
+          employeeNameTd.innerText = nameInput.value;
+          employeeEmailTd.innerText = emailInput.value;
+          employeeSalatyTd.innerText = salaryInput.value;
+        };
+        //获取所有A标签
+        var deleteLink = document.getElementsByTagName("a");
+        for (const i of deleteLink) {
+          //给所有的a添加删除方法
+          i.onclick = deleteEmployeeInfor;
+        }
+        //删除功能函数
+        function deleteEmployeeInfor() {
+          //移除td的父节点的父节点,也就是tr
+          var confirmation = confirm("确认要删除吗");
+          //判断用户选择是否要删除
+          if (confirmation == true) {
+            this.parentNode.parentNode.remove(this);
+            //这个只能删新加进去的(因为浏览器会自动生成一个tbody,所以原来的三个tr不是employeetable的直属子元素)employeeTable.removeChild(this.parentNode.parentNode);
+          } else {
+            return;
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <table id="employeeTable">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr>
+        <td>Tom</td>
+        <td>tom@tom.com</td>
+        <td>5000</td>
+        <td><a href="javascript:;">Delete</a></td>
+      </tr>
+      <tr>
+        <td>Jerry</td>
+        <td>jerry@sohu.com</td>
+        <td>8000</td>
+        <td><a href="javascript:;">Delete</a></td>
+      </tr>
+      <tr>
+        <td>Bob</td>
+        <td>bob@tom.com</td>
+        <td>10000</td>
+        <td><a href="javascript:;">Delete</a></td>
+      </tr>
+    </table>
+
+    <div id="formDiv">
+      <h4>添加新员工</h4>
+
+      <table>
+        <tr>
+          <td class="word">name:</td>
+          <td class="inp">
+            <input type="text" name="empName" id="empName" />
+          </td>
+        </tr>
+        <tr>
+          <td class="word">email:</td>
+          <td class="inp">
+            <input type="text" name="email" id="email" />
+          </td>
+        </tr>
+        <tr>
+          <td class="word">salary:</td>
+          <td class="inp">
+            <input type="text" name="salary" id="salary" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <button id="addEmpButton">
+              Submit
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
