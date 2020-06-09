@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="fanye" unicode="&#59222;" d="M613.3 383.6L274.9 45.2c-24.9-24.9-24.9-65.6 0-90.5 24.9-24.9 65.6-24.9 90.5 0L749 338.3c6.2 6.2 10.9 13.4 14 21.1 5.4 13.5 6.1 28.5 2 42.4-0.6 2-1.3 3.9-2 5.9-3.1 7.7-7.8 14.9-14 21.1L365.4 812.5c-24.9 24.9-65.6 24.9-90.5 0-24.9-24.9-24.9-65.6 0-90.5l338.4-338.4z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="fanye1" unicode="&#59223;" d="M410.7 383.6L749.1 722c24.9 24.9 24.9 65.6 0 90.5-24.9 24.9-65.6 24.9-90.5 0L274.9 428.8c-6.2-6.2-10.9-13.4-14-21.1-5.4-13.5-6.1-28.5-2-42.4 0.6-2 1.3-3.9 2-5.9 3.1-7.7 7.8-14.9 14-21.1l383.6-383.6c24.9-24.9 65.6-24.9 90.5 0 24.9 24.9 24.9 65.6 0 90.5L410.7 383.6z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>

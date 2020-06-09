@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box1 {
+        width: 100px;
+        height: 100px;
+        border: solid red 10px;
+        padding: 10px;
+        background-color: orange;
+        margin-top: 10px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var box1 = document.getElementById("box1");
+        var btn01 = document.getElementById("btn01");
+        btn01.onclick = function () {
+          //元素的可见宽度content+padding,还有个类似的属性clientHeight
+          //   alert(box1.clientWidth);
+          //alert(box1.offsetWidth); //offsetWidth,Height获取的是padding+content+border
+          /* offsetParent-返回当前离元素最近的开启定位了的祖先元素,如果都没开的话,就返回body
+             offsetLeft-返回当前元素左侧离自己最近的开启了定位的祖先元素的左侧的距离
+             offsetTop-返回当前元素左侧离自己最近的开启了定位的祖先元素的左侧的距离
+             scrollHeight获取元素滚动区域的整个高度
+             scrollWeight获取元素滚动区域的整个高度
+             scrollTop获取垂直滚动条的偏移量//说白了就是被获取元素往下移之后离顶边的距离
+             scrollLeft获取水平滚动条的偏移量
+             当scrollHeight - scrollTop == clientHeight为true的时候,说明垂直滚动条已经到底了
+           */
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn01">23213123221</button>
+    <div id="box1"></div>
+  </body>
+</html>

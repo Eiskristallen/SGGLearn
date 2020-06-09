@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box1 {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+      }
+      #s1 {
+        background-color: #ff00;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        //为s1来绑定单击响应函数
+        document.getElementById("s1").onclick = function (ev) {
+          alert("xixi");
+          ev.cancelBubble = true;
+        };
+        document.getElementById("box1").onclick = function () {
+          alert("heh");
+        };
+        document.body.onclick = function () {
+          alert("body");
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="box1">
+      woshiDIV
+      <span id="s1">
+        woshiSPAN
+      </span>
+    </div>
+  </body>
+</html>

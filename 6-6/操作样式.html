@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        //var btn = document.getElementById("btn");
+        //当id和变量名一样的时候,可以直接省略
+        // btn.onclick = function () {
+        //   alert(btn);
+        // };
+        var box1 = document.getElementById("box1");
+        var btn = document.getElementById("btn");
+        //当id和变量名一样的时候,可以直接省略
+        var w = 100;
+        var h = 100;
+        btn.onclick = function () {
+          //   w += 100;
+          //   h += 100;
+          //   box1.style.width = w + "px";
+          //   box1.style.height = h + "px";
+          //   // xxx-yyy 这种属性,我们必须改成驼峰式命名法
+          //   //下面就是例子,background-color这种有特殊符号的属性就得这么写
+          //   box1.style.backgroundColor = "green";
+          var box11 = getComputedStyle(box1, null);
+          alert(box11.width);
+          //box1.style.width = parseInt(box11.width) * 2 + "px";
+          //getComputedStyle 可以拿到元素的当前样式,有两个参数,(第一个是要获取的元素,第二个是元素的伪类)
+          //getComputedStyle返回的是一个对象,对象属性里保存了该对象所有生效的样式(不管是行内样式还是css里面的样式,谁生效读出来谁)
+          //getComputedStyle里面返回的属性都是只读的,无法修改,而且返回的是带单位的,不能拿来用作计算
+          //getComputedStyle获取的是一个计算的属性,如果没设置宽度的话会返回计算过得body宽度
+        };
+      };
+    </script>
+    <style>
+      #box1 {
+        /* width: 50px; */
+        height: 50px;
+        margin-top: 10px;
+        background-color: red;
+        transition: all 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">点我</button>
+    <div id="box1"></div>
+  </body>
+</html>

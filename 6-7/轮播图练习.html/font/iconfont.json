@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4774741",
+      "name": "翻页2",
+      "font_class": "fanye",
+      "unicode": "e756",
+      "unicode_decimal": 59222
+    },
+    {
+      "icon_id": "4774750",
+      "name": "翻页1",
+      "font_class": "fanye1",
+      "unicode": "e757",
+      "unicode_decimal": 59223
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+      }
+      body {
+        height: 10000px;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var box1 = document.getElementById("box1");
+        box1.style.position = "absolute";
+        window.onmousemove = function (event) {
+          var a = document.documentElement.scrollTop;
+          if ((event.target.nodeName = "body")) {
+            alert(event.target.nodeName);
+          }
+          //   box1.style.left = event.pageX + "px";
+          //   box1.style.top = event.pageY + "px";
+          box1.style.left = event.clientX + "px";
+          box1.style.top = event.clientY + a + "px";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="box1"></div>
+  </body>
+</html>

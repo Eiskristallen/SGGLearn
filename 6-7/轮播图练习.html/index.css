@@ -1,0 +1,116 @@
+*{
+    margin: 0px;
+    padding: 0px;  
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    display: block;
+    height: 100%;
+   
+}
+img{
+    display: block;
+    
+    transition: all 0.5s;
+    
+}
+
+#banner{
+    width: 1230px;
+    height: 460px;
+    margin: 50px auto;
+    position: relative;
+}
+#leftList{
+    width: 230px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    
+   
+}
+#leftList li a::after{
+    content: '>';
+    padding-left: 130px;
+    
+}
+#list{
+    padding: 20px 0px;
+    
+}
+#leftList li{
+    height: 42px;
+    line-height: 42px;
+    
+    padding-left: 30px;
+}
+#leftList li:hover{
+    background-color: orange;
+}
+#bannerPicture{
+    width: 1230px;
+    height: 460px;
+}
+#bannerPicture span{
+    position: absolute;
+    z-index: 2;
+    font-size: 50px;
+    
+}
+#bannerPicture span:nth-of-type(1){
+    right: 0px;
+    top: 50%;
+    margin-top: -50px;
+}
+#bannerPicture span:nth-of-type(2){
+    left: 230px;
+    top: 50%;
+    margin-top: -50px;
+}
+#bannerPicture span:hover{
+    background-color: azure;
+}
+#images{
+    width: 100%;
+    height: 100%;
+   
+}
+#images li{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+#images li:nth-of-type(1){
+   z-index: 1;
+}
+
+#images img{
+    width: 100%;
+    height: 100%;
+}
+#dot{
+     display: flex;
+     position: absolute;
+     right:  70px;
+     bottom: 30px;
+     z-index: 1;
+     flex-direction: row;
+}
+#dot li{
+    width: 8px;
+    height: 8px;
+    margin-right: 10px;
+    border: 1px solid transparent;
+    background-color: black;
+    border-radius: 16px;
+    background-clip: content-box;
+}
+#dot .active{
+    border: 1px solid red ;
+}

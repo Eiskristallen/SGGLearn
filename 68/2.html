@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box1 {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var box1 = document.getElementById("box1");
+        //   box1.addEventListener(
+        //     "onmousedown",
+        //     function () {
+        //       document.addEventListener(
+        //         "onmousemove",
+        //         function (ev) {
+        //           box1.style.left = ev.clientX + "px";
+        //           box1.style.top = ev.clientY + "px";
+        //         },
+        //         false
+        //       );
+        //     },
+        //     false
+        //   );
+        box1.onmousedown = function () {
+          document.onmousemove = function (ev) {
+            box1.style.left = ev.clientX + "px";
+            box1.style.top = ev.clientY + "px";
+          };
+          document.onmouseup = function () {
+            document.onmouseup = null;
+            document.onmousemove = null;
+          };
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="box1"></div>
+  </body>
+</html>
