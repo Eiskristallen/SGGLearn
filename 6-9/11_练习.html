@@ -44,12 +44,16 @@
         var imgIndex = 0;
         var self = false;
         var img = document.getElementById("carImg");
+        var totalImg = 60;
+        var mouseBegin, distance;
+        var currentPostion;
         document.addEventListener(
           "mousedown",
           function (ev) {
             self = true;
 
             ev.preventDefault = true;
+            mouseBegin = ev.clientX;
           },
           false
         );
@@ -57,22 +61,47 @@
           "mousemove",
           function (ev) {
             ev.preventDefault = true;
-            if (self) {
-              if (ev.movementX > 0) {
-                if (imgIndex >= 59) {
-                  imgIndex = 0;
-                }
-                imgIndex++;
 
-                console.log(imgIndex);
-                img.src = "img/" + imgIndex + ".jpg";
-              } else if (ev.movementX < 0) {
-                if (imgIndex <= 0) {
-                  imgIndex = 59;
-                }
-                imgIndex--;
-                img.src = "img/" + imgIndex + ".jpg";
-              }
+            if (self) {
+              //算出移动起始点和目前所在的点的距离
+              var distance = //取一个index每次赋值给distance来记录上次鼠标停下来的位置信息,确保不会每次点鼠标都从第一张图片开始
+                imgIndex + Math.floor((ev.clientX - mouseBegin) / 10);
+              console.log(distance);
+              //距离取模maximg/,确保不会超过图片最大数量
+              distance %= totalImg;
+              if (distance < 0) {
+                //解决负值问题
+                distance += totalImg; //distance += totalImg 就确保了图片不会超出范围,比如-1 + 60等于 从反方向开始旋转图片(相当于length-1)
+              } //直接用距离来代替index给图片,确保鼠标向右移动图片也可以正常旋转,因为往右移动距离会减少,所以图片也会往前翻
+              img.src = "img/" + distance + ".jpg";
+              //
+              //   if (currentPostion > mouseBegin) {
+              //     imgIndex++;
+              //     if (imgIndex > 59) {
+              //       imgIndex = 0;
+              //     }
+              //   } else {
+              //     imgIndex--;
+              //     if (imgIndex < 0) {
+              //       imgIndex = 59;
+              //     }
+              //   }
+              //   img.src = "img/" + imgIndex + ".jpg";
+              //兼容IE版本
+              //   if (ev.movementX > 0) {
+              //     if (imgIndex >= 59) {
+              //       imgIndex = 0;
+              //     }
+              //     imgIndex++;
+              //     console.log(imgIndex);
+              //     img.src = "img/" + imgIndex + ".jpg";
+              //   } else if (ev.movementX < 0) {
+              //     if (imgIndex <= 0) {
+              //       imgIndex = 59;
+              //     }
+              //     imgIndex--;
+              //     img.src = "img/" + imgIndex + ".jpg";
+              //   }
             }
           },
           false
@@ -81,6 +110,7 @@
           "mouseup",
           function () {
             self = false;
+            imgIndex = distance;
           },
           false
         );
