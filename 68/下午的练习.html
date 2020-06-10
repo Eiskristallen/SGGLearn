@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        var boxs = document.getElementsByTagName("div")[0];
+        function addDrag(obj) {
+          //   var isDrag = false;
+          //   obj.addEventListener(
+          //     "mousedown",
+          //     function (ev) {
+          //       //
+          //       isDrag = true;
+          //       ev.preventDefault();
+          //       left = ev.offsetX;
+          //       top1 = ev.offsetY;
+          //     },
+          //     false
+          //   );
+          //   document.addEventListener(
+          //     "mousemove",
+          //     function (ev) {
+          //       if (isDrag) {
+          //         obj.style.left = ev.clientX - left + "px";
+          //         obj.style.top = ev.clientY - top1 + "px";
+          //       }
+          //     },
+          //     false
+          //   );
+          //   document.addEventListener("mouseup", function () {
+          //     isDrag = false;
+          //   });
+        }
+        // addDrag(boxs);
+
+        //给document绑定
+        var self = null;
+
+        document.addEventListener(
+          "mousedown",
+          function (ev) {
+            //
+            self = ev.target;
+            if (ev.target.classList.contains("drag") && ev.button === 0) {
+              ev.preventDefault();
+              left = ev.offsetX;
+              top1 = ev.offsetY;
+            }
+          },
+          false
+        );
+        document.addEventListener(
+          "mousemove",
+          function (ev) {
+            if (self) {
+              self.style.left = ev.clientX - left + "px";
+              self.style.top = ev.clientY - top1 + "px";
+            }
+          },
+          false
+        );
+        document.addEventListener("mouseup", function () {
+          self = null;
+        });
+
+        // box1.onmousedown = function (ev) {
+        //   //计算顶部的距离,减去这段距离之后,鼠标就能想在哪就在那了
+        //   //   var top = ev.clientY - box1.offsetTop; //offsetop是元素离页面顶部的距离
+        //   //计算左边的距离,减去这段距离之后,鼠标就能想在哪就在那了
+        //   //   var left = ev.clientX - box1.offsetLeft;
+        //   var x = ev.offsetX;
+        //   var y = ev.offsetY;
+        //   document.onmousemove = function (ev) {
+        //     box1.style.left = ev.clientX - x + "px";
+        //     box1.style.top = ev.clientY - y + "px";
+        //   };
+        //   document.onmouseup = function () {
+        //     document.onmouseup = null;
+        //     document.onmousemove = null;
+        //   };
+        //   return false;
+        // };
+      };
+    </script>
+    <style>
+      #box1 {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1" class="drag"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+  </body>
+</html>

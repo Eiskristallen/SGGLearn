@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //贪心算法找最少的硬币
+      function coin(amount, arr) {
+        var num = 0; //记录一共所需的硬币数量
+        var numOfCoin = amount; //所需找零的金钱数额
+        //循环吧每个数组里对应的硬币数额都计算一次
+        for (let i = 0, j = arr.length; i < j; i++) {
+          //确保要找零的数量大于当前遍历查找中硬币的面值
+          if (arr[i] <= numOfCoin) {
+            //通过用需要找零的钱数除以当前能用来找零的最大面额,得出需要几个该面额的硬币,向下取整保证取到合适的数量
+            num += Math.floor(numOfCoin / arr[i]);
+            console.log(
+              `${arr[i]}面额所需要的硬币数量为${Math.floor(
+                numOfCoin / arr[i]
+              )}个,累积找赎硬币数量为${num}个`
+            );
+            //更新剩余需要找赎的面额,利用当前需要找赎的数额与能用来找赎的最大面额硬币取模来得到剩余的需要找赎的数额
+            numOfCoin = numOfCoin % arr[i];
+          }
+        }
+      }
+      coin(71, [25, 10, 5, 1]);
+    </script>
+  </head>
+  <body></body>
+</html>

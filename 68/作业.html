@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .c1 {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+      }
+      .c2 {
+        width: 120px;
+        height: 120px;
+        background-color: red;
+      }
+      .c3 {
+        width: 130px;
+        height: 130px;
+        background-color: gold;
+      }
+      .c4 {
+        width: 150px;
+        height: 150px;
+        background-color: greenyellow;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        //拿到box1元素对象
+        var box = document.getElementsByTagName("div")[0];
+        //以数组的形式获取到classList
+        function containsList(obj) {
+          let containClassList = [];
+          containClassList = obj.className.split(" ");
+          return containClassList;
+        }
+
+        //给指定元素对象数组加入新的类名后转为字符串并设置为其className
+        function addList(obj, classname) {
+          //   var newClassList = containsList(obj);
+          //   newClassList.push(classname);
+          //   newClassList = newClassList.join(" ");
+          //   obj.className = newClassList;
+          //用正则
+          var re = new RegExp("\\b" + classname + "\\b");
+          if (!re.test(classname)) {
+            obj.className + " " + classname;
+          }
+        }
+
+        //从指定对象的className中移除指指定的类名
+        function removeList(obj, classname) {
+          var newClassList = containsList(obj);
+          newClassList.splice(newClassList.indexOf(classname), 1);
+          newClassList = newClassList.join(" ");
+          obj.className = newClassList;
+        }
+
+        //将指定元素中的类名替换为自己想要的
+        function replaceList(obj, target, ele) {
+          obj.className = obj.className.replace(target, ele);
+        }
+        //首先检测传入类里面有没有已经存在的类名,如有则删除掉,如果没有则加入.通过反复调用该函数可实现开关指定类名
+        function toggleList(obj, classname) {
+          if (obj.className.indexOf(classname) !== -1) {
+            removeList(obj, classname);
+          } else if (obj.className.indexOf(classname) === -1) {
+            addList(obj, classname);
+          }
+        }
+
+        addList(box, "c2");
+        // removeList(box, "c1");
+        // replaceList(box, "c2", "c3");
+        toggleList(box, "c2");
+        console.log(box.className);
+      };
+    </script>
+  </head>
+  <body>
+    <div class="c1"></div>
+  </body>
+</html>
