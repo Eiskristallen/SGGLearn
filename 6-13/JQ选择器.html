@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../JQ1.12.4.js"></script>
+    <script>
+      /*
+      JQ选择器 
+      
+       
+      */
+      $(function () {
+        /*  选择ID为DIV1
+        $("#div1").css("background", "pink");
+        选择所有的DIV元素
+        $("div").css("background", "yellow");
+        选择所有class为box的元素
+        $(".box").css("background", "black"); //JQ自动遍历给每个对象添加属性,不需要手动循环
+        JQ方法内置隐式遍历
+        $(".box").click(() => {
+          alert("xixi");
+        });
+        交集选择器,又得是div,class又得是box
+        $("div.box").css("background", "red");
+        并集选择器,div 和 span
+        $("div,span").css("background", "green"); */
+      });
+    </script>
+  </head>
+  <body>
+    <div id="div1" class="box">div1</div>
+    <div id="div2" class="box">div2</div>
+    <div id="div">div3(class = box)</div>
+    <span class="box">span(class=box)</span>
+  </body>
+</html>

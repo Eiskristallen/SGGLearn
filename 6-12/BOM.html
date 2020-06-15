@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      /*
+        BOM(浏览器对象模型)
+         -BOM中为我们提供了一组对象,借助这组对象我们可以通过JS来操作浏览器
+          Window(全局对象)
+          Navigator
+          Location
+           -reload():相当于刷新按钮
+           -reload(true)强制清空缓存刷新页面
+          History
+          Screen
+          BOM都是Window对象的属性,可以通过window对象访问,也可以直接访问
+         */
+      window.onload = function () {
+        var btn01 = document.getElementById("btn01");
+        btn01.addEventListener(
+          "click",
+          function () {
+            // location.assign("http://www.baidu.com");
+            var ua = navigator.userAgent;
+            // if (/FireFox/.test(ua)) {
+            //   alert("xixi");
+            // } else if (/Chrome/.test(ua)) {
+            //   alert("hehe");
+            // }
+            if (window.ActiveXObject) {
+              alert("你是IE");
+            } else {
+              alert("不是IE");
+            }
+          },
+          false
+        );
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn01"></button>
+  </body>
+</html>

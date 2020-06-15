@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+      }
+      #list {
+        height: 30px;
+        display: flex;
+        text-align: center;
+      }
+      #list li {
+        height: 30px;
+        width: 100px;
+        border: 1px solid red;
+      }
+      div {
+        width: 400px;
+        height: 400px;
+        background-color: pink;
+        position: absolute;
+        display: none;
+      }
+    </style>
+    <script src="../JQ1.12.4.js"></script>
+    <script>
+      $(function () {
+        //获取DIV JQ对象
+        var setOfDiv = $(".box");
+        //获取li对象
+        var setOfLi = $(".tag");
+        //处理样式问题
+        $(setOfDiv[0]).css("display", "block");
+        $(setOfDiv[1]).css("background", "yellow");
+        $(setOfDiv[2]).css("background", "green");
+        $(setOfLi[0]).css("background", "pink");
+        $(setOfLi[1]).css("background", "yellow");
+        $(setOfLi[2]).css("background", "green");
+        //给各个LI绑定单击事件
+        setOfLi.click(function () {
+          //排他,先把所有的都设置为none
+          setOfDiv.css("display", "none");
+          //然后将选中的元素设置为block
+          $(setOfDiv[$(this).index()]).css("display", "block");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="list">
+      <li class="tag">第一页</li>
+      <li class="tag">第二页</li>
+      <li class="tag">第三页</li>
+    </ul>
+    <div class="box">联通</div>
+    <div class="box">移动</div>
+    <div class="box">电信</div>
+  </body>
+</html>

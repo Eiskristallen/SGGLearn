@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../JQ1.12.4.js"></script>
+    <script>
+      $(function () {
+        //ul下所有span
+        // $("ul span").css("background", "green");
+        //ul下所有子元素的span
+        // $("ul>span").css("background", "green");
+        //选中class为box的下一个li
+        // $(".box+li").css("background", "green");
+        //选中clss为box后边所有的兄弟元素
+        // $(".box~").css("background", "green");
+        //假设下面有N个div
+        //选择第一个div        $('div:first'); :first是整体的选择器,不是:链接
+        //选择第二个,第三个div   $('div:eq(index),div:eq(index)');
+        //选择第二个,第三个div   $('div:gt(small index):lt(large index)')//这个方法不包含给定索引
+        //gt lt因为切数组的关系会导致位置不对,所以要么犯反着写,要么就large index要 -1,才能选到对的
+        //$('div:contain(hehehhe)');--根据内容匹配元素
+        //选择隐藏的DIV---- $('div:hidden').show(para[传时间毫秒]);   JQ的动画方法
+        //选择有title属性的div-- $('div[title]');
+        //选择title属性为hello的div元素-- $('div[title=hello]');
+        //选择title属性不等于hello的div元素-- $('div[title][title!=hello]');   $('div[title]:not[title = hello]')
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>AAA</li>
+      <li class="box">BBB</li>
+      <li title="hello"><span>CCC</span></li>
+      <li title="hello"><span>DDD</span></li>
+      <span>EEE</span>
+    </ul>
+  </body>
+</html>

@@ -6,13 +6,28 @@
     <title>Document</title>
     <script>
       function test() {
-        alert("aa");
+        alert("ss");
       }
 
       //setTimeout 用来设置函数在一定时间之后才执行
       //第一个参数是要执行的函数
       //第二个参数是间隔的时间(毫秒)
-      setTimeout(test, 3000);
+      //setTimeout(test, 3000);
+      //clearTimeout用来关闭setTimeout设置的定时器
+
+      /*
+      setInterval()
+       -可以用来设置让一个函数反复的执行
+       -参数 :
+          1.第一个 要执行的函数
+          2.每次执行的间隔时间
+       setInterval会返回一个唯一的ID作为参数
+         这个ID是定时器唯一的标识,可以通过标识来关闭定时器
+       */
+      //   var timer = setInterval(test, 3000);十秒后关闭timer
+      //   setTimeout(function () {
+      //     clearInterval(timer);
+      //   }, 10000);
     </script>
   </head>
   <body></body>

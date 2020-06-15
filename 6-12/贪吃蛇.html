@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      #game {
+        width: 340px;
+        height: 400px;
+        border: 10px solid black;
+        border-radius: 20px;
+        background-color: #b7d4a8;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        align-items: center;
+
+        margin: 30px auto;
+      }
+      #stage {
+        width: 300px;
+        height: 300px;
+        border: 2px solid black;
+        background-color: #b7d4a8;
+        margin: 10px auto;
+        position: relative;
+      }
+      #stage .snake_body {
+        width: 8px;
+        height: 8px;
+        padding: 1px;
+        background-color: #000000;
+        background-clip: content-box;
+        border-radius: 10px;
+        position: absolute;
+      }
+      /* 食物样式 */
+      #food {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 40px;
+        left: 50px;
+      }
+      #food > div {
+        width: 5px;
+        height: 5px;
+        background-color: black;
+        transform: rotate(45deg);
+        float: left;
+      }
+      /*设置游戏信息*/
+      #infor {
+        width: 300px;
+        font: bold 20px "Courier", monospace;
+        display: flex;
+        justify-content: space-between;
+
+        /* align-items: center; */
+      }
+    </style>
+  </head>
+  <body>
+    <!--整个游戏-->
+    <div id="game">
+      <!--游戏主窗口-->
+      <div id="stage">
+        <!--蛇的整体-->
+        <div id="snake">
+          <!--蛇身-->
+          <div class="snake_body"></div>
+        </div>
+        <!--食物-->
+        <div id="food">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div id="infor">
+        <div>Score:<span id="score">0</span></div>
+        <div>Level:<span id="level">1</span></div>
+      </div>
+    </div>
+    <script>
+      /*
+        游戏的JS代码
+         1.先使snake可以根据按键来不同方向移动
+
+         */
+      //创建俩变量,来记录元素的极限位置(游戏边框的边界)
+      var stage = document.getElementById("stage"); //获取游戏主窗口
+      //整个蛇的外部容器,蛇变长实际上就是为snake添加一个div
+      var snake = document.getElementById("snake");
+      //获取所有的身体,舌头就是数组第一个元素(snake_body[0])
+      var snake_body = document.getElementsByClassName("snake_body");
+      //创建一个变量记录移动的方向,score表示分数,level表示等级
+      var direction,
+        score = 0,
+        level = 1;
+      var keyArr = ["ArrowUp", "ArrowDown", "ArrowRight", "ArrowLeft"];
+      //用窗口大小减去蛇的宽度,就能拿到极限能走的宽度,这么写是为了避免将来可能修改蛇的宽度之类的值,这种写法可以动态更新
+      var MAX_LEFT = stage.clientWidth - snake_body[0].offsetWidth;
+      var MAX_TOP = stage.clientHeight - snake_body[0].offsetHeight;
+      var scoreSpan = document.getElementById("score");
+      var levelSpan = document.getElementById("level");
+
+      //获取食物
+      var food = document.getElementById("food");
+      function main() {}
+      //绑定键盘按下事件
+      document.addEventListener(
+        "keydown",
+        function (ev) {
+          if (keyArr.indexOf(ev.key) !== -1) {
+            direction = ev.key;
+          }
+        },
+        false
+      );
+      //定义一个函数用来生成食物
+      function makeFood() {
+        //生成0-29之间的随机数,然后X10.这样确保出来的都是10的倍数,这样蛇头才能重合
+        var leftP = Math.round(Math.random() * 29) * 10; //用maxleft是为了保证就算窗口变大了也可以同步
+        var TopP = Math.round(Math.random() * 29) * 10;
+        food.style.left = leftP + "px";
+        food.style.top = TopP + "px";
+      }
+      //一开始就生成一个食物
+      makeFood();
+      //开启一个定时器,来控制蛇的移动
+      setTimeout(function main() {
+        var top = snake_body[0].offsetTop;
+        var left = snake_body[0].offsetLeft;
+
+        switch (direction) {
+          case "ArrowUp":
+            //向上移动减少top值
+            top -= 10;
+            //检查有没有第二节
+            if (snake_body[1] && snake_body[1].offsetTop === top) {
+              top += 20;
+            }
+            break;
+          case "ArrowDown":
+            //向下移动增加top值
+            top += 10;
+            if (snake_body[1] && snake_body[1].offsetTop === top) {
+              top -= 20;
+            }
+            break;
+
+          case "ArrowRight":
+            //向右增加left
+            left += 10;
+            if (snake_body[1] && snake_body[1].offsetLeft === left) {
+              left -= 20;
+            }
+            break;
+
+          case "ArrowLeft":
+            //向左减少left
+            left -= 10;
+            if (snake_body[1] && snake_body[1].offsetLeft === left) {
+              left += 20;
+            }
+            break;
+        }
+
+        if (left < 0 || top < 0 || left > MAX_LEFT || top > MAX_TOP) {
+          alert("撞墙了");
+          return;
+        }
+        //当蛇头坐标等于食物坐标时,说明吃到了
+        if (left === food.offsetLeft && top === food.offsetTop) {
+          makeFood();
+          /*
+           吃到了食物:
+            -1.随机生成食物坐标并改变
+          */
+          //增加分数
+          score += level;
+          scoreSpan.innerHTML = score;
+          levelSpan.innerHTML = level;
+          //蛇变长
+          var newBody = document.createElement("div");
+          newBody.className = "snake_body";
+          //让新的身体成为蛇头
+          newBody.style.left = left + "px";
+          newBody.style.top = top + "px";
+          //把新蛇头插在老蛇头前面
+          snake.insertBefore(newBody, snake_body[0]);
+          /*
+          修改蛇的位置时,要从后往前改 
+          
+          */
+          //判断是否提升等级
+          if (level < 10) {
+            level = Math.floor(snake_body.length / 10) + 1;
+            levelSpan.innerHTML = level;
+          }
+
+          setTimeout(main, 300 - (level - 1) * 30);
+          return;
+        }
+        // 使蛇的身体跟随蛇移动
+        // 将后边身体位置，设置为它前一个身体的位置
+        // 第5节身体的位置，应该等于第4节的，第4节的应该等于第3节 ...
+        // 修改位置时要从后往前修改 先该最后一节，然后倒数第二节...
+        for (var i = snake_body.length - 1; i > 0; i--) {
+          //思路是让后面的身体的坐标等于它的前一个
+          var pLeft = snake_body[i - 1].offsetLeft;
+          var pTop = snake_body[i - 1].offsetTop;
+          //修改当前身体(i)的坐标,让他等于i-1的坐标
+          snake_body[i].style.left = pLeft + "px";
+          snake_body[i].style.top = pTop + "px";
+
+          //判断蛇头和i-1位置是否相同,如果相同则相撞,i 不等于1是因为考虑两节身体的情况下i-1会变成0(蛇头的位置),会造成bug
+          if (i !== 1 && top == pTop && left == pLeft) {
+            alert("游戏结束");
+            return;
+          }
+        }
+
+        //放在下面就可以在修改值之前,判断蛇是否撞墙
+        snake_body[0].style.left = left + "px";
+        snake_body[0].style.top = top + "px";
+        setTimeout(main, 100);
+      }, 100);
+    </script>
+  </body>
+</html>

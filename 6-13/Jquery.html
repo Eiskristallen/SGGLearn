@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简单使用JQ</title>
+    <script src="../JQ1.12.4.js"></script>
+    <script>
+      // window.onload = function () {
+      //   //原生
+      //   // var btn = document.getElementById("btn1");
+      //   // btn.onclick = function () {
+      //   //   alert(document.getElementById("username").value);
+      //   // };
+      //
+      /*
+      $(selector).action() to assign an element(s)[can also be a function or something else] to an event.
+       */
+      // };
+      //JQ版本
+      //第一部,加载完成的回调函数(相当于window.onload)
+      //通过jq拿取的元素,是JQ对象,不是DOM对象//JQ对象有点类似于数组,里面有个context:document包含了源生DOM对象的各种方法和事件属性
+      $(function () {
+        //获取按钮并绑定单击事件,传选择器字符串.JQ里面所有在源生JS里面=function的,都是传function
+        //通过JQ实现的选择和方法,依然是通过原生技术实现的
+        var s = $("#btn2").click(function () {
+          //获取输入框的value
+          //这里面的this指向的是selector拿到的dom对象
+          //在JQ里面
+          // alert($("#username")); //val()方法可以获取里面的value
+          // var setOfDiv = $("div");
+          // // console.log(setOfDiv.html("hahah").html());
+          // console.log(setOfDiv.attr("class")); //attr读取所有匹配elements里面第一个的某一个attribute,写入的话可以给一个或者全部匹配的element写
+          // $("<input type = 'text' name = 'masg3'> <br>").appendTo("body"); //to里面是选择器
+          //遍历数组
+          // var arr = [1, 234, 34, 2, 23, 32, 4];
+          // //通用遍历方法. 俩参数,arr和callbackfunction, callbackfunction的用法跟foreach一样
+          // $.each(arr, function (x, y) {
+          //   console.log(y);
+          // });
+          var str = "     my sting        ";
+          console.log($.trim(str)); //返回值为去除空格的字符串
+          //所有通过JQ拿到的元素对应的变量,都必须以$开头
+          //JQ对象  => dom  : 下标取值或者遍历
+          //Dom => JQ对象  $(dom对象)
+          //$.each()  通用遍历方法,用来遍历数组或者对象
+          /* $JQ对象.each(
+              this 指向每次拿出来的元素
+          )  专门用来遍历JQ对象(跟Arr.foreach()差不多) */
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="username" />
+    <button id="btn1">确定(origin)</button>
+    <button id="btn2">commit(JQ)</button>
+    <!-- 点击确认按钮,alert输入框中的值 -->
+    <div class="xixi">asjdops</div>
+    <div class="haha"></div>
+    <div class="hehe"></div>
+    <div class="hehe"></div>
+    <div class="hehe"></div>
+  </body>
+</html>

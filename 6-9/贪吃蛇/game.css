@@ -1,0 +1,42 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+#game_Border{
+    width: 400px;
+    height: 400px;
+    margin: 10px auto;
+    border: 2px solid blue;
+    background-color: azure;
+    position: relative;
+}
+#snakeHead{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: black;
+}
+#food{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: aqua;
+    display: none;
+}
+#scoreBoard{
+    width: 400px;
+    height: 20px;
+    margin: 10px auto;
+    border: 1px solid gray;
+    background-color: bisque;
+    text-align: center;
+}
+.snake{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: black;
+}

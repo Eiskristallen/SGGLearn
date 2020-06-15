@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../JQ1.12.4.js"></script>
+    <script>
+      $(function () {
+        // var $xixi = $("#div1")[0];即使是用id选择器选出来的JQ对象,依然只是一个包裹了DOM对象的伪数组,只要用下标取值拿到的就是DOM对象
+        //$xixi无法使用.html()方法,因为是dom对象,只能用innerHTML
+        // console.log($xixi.innerHTML);
+        var $btn = $("button"); //装了所有button dom对象的伪类数组对象
+        $btn.each((i, v) => {
+          //输出所有button里面的文本
+          console.log($(v).html());
+        });
+        console.log($("#btn03").index()); //输出第三个按钮在是当前数组的第几个
+      });
+    </script>
+  </head>
+  <body>
+    <div id="div1"></div>
+    <button>xixi</button>
+    <button>hehe</button>
+    <button id="btn03">haha</button>
+    <button>hoho</button>
+  </body>
+</html>
